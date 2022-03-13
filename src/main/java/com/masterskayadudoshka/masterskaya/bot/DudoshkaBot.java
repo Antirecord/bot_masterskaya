@@ -36,6 +36,7 @@ public class DudoshkaBot extends TelegramLongPollingBot {
             if (message.startsWith(COMMAND_PREFIX)){
                 String commandIdentifier = message.split(" ")[0].toLowerCase();
                 commandContainer.retrieveCommand(commandIdentifier).execute(update);
+                SendMessage sendMessage = new SendMessage();
             }
             else commandContainer.retrieveCommand(NO.getCommandName()).execute(update);
         }

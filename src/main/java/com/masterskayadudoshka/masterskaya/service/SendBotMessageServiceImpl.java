@@ -9,6 +9,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Service
 public class SendBotMessageServiceImpl implements SendBotMessageService {
     private final DudoshkaBot dudoshkaBot;
+
     @Autowired
     public SendBotMessageServiceImpl(DudoshkaBot dudoshkaBot) {
         this.dudoshkaBot = dudoshkaBot;
