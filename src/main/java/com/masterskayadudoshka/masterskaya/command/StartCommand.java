@@ -4,6 +4,11 @@ import com.masterskayadudoshka.masterskaya.model.TelegramUser;
 import com.masterskayadudoshka.masterskaya.service.SendBotMessageService;
 import com.masterskayadudoshka.masterskaya.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButtonPollType;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException;
 
 public class StartCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
@@ -30,6 +35,10 @@ public class StartCommand implements Command {
                     user.setActive(true);
                     userService.save(user);
                 });
+        InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
+        inlineKeyboardButton.setText("Тык");
+        inlineKeyboardButton.setCallbackData("result");
+
         sendBotMessageService.sendMessage(chatId, START_MESSAGE);
     }
 }
