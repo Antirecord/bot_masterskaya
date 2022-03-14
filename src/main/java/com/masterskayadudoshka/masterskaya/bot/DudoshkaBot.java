@@ -61,6 +61,7 @@ public class DudoshkaBot extends TelegramLongPollingBot {
                     inputMedia.add(new InputMediaPhoto("src/main/resources/images/img3.jpeg"));
                     SendMediaGroup sendMediaGroup = new SendMediaGroup();
                     sendMediaGroup.setMedias(inputMedia);
+                    sendMediaGroup.setChatId(update.getMessage().getChatId().toString());
                     execute(sendMediaGroup);
                 }
                 SendMessage sendMessage = new SendMessage();
