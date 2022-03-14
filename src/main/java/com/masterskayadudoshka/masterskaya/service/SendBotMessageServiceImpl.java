@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.masterskayadudoshka.masterskaya.command.CommandName.START;
+import static com.masterskayadudoshka.masterskaya.command.StartCommand.START_MESSAGE;
 
 @Service
 public class SendBotMessageServiceImpl implements SendBotMessageService {
@@ -26,7 +27,7 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
     public void sendMessage(String chatId, String message) {
         SendMessage sendMessage = new SendMessage(chatId, message);
         sendMessage.enableHtml(true);
-        if (message.equals(START.getCommandName())) {
+        if (message.equals(START_MESSAGE)) {
             InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
             inlineKeyboardButton.setText("Каталог");
             inlineKeyboardButton.setCallbackData("Просмотр каталога");
