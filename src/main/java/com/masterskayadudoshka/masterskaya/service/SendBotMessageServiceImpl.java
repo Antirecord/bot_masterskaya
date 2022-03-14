@@ -28,53 +28,53 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
         SendMessage sendMessage = new SendMessage(chatId, message);
         sendMessage.enableHtml(true);
         if (message.equals(START_MESSAGE)) {
-//            InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
-//            inlineKeyboardButton.setText("Каталог");
-//            inlineKeyboardButton.setCallbackData("Просмотр каталога");
-//
-//            InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
-//            inlineKeyboardButton.setText("Заказ");
-//            inlineKeyboardButton.setCallbackData("Оформление заказа");
-//
-//            InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
-//            inlineKeyboardButton.setText("Оплата");
-//            inlineKeyboardButton.setCallbackData("Оплата заказа");
-//            inlineKeyboardButton2.setPay(true);
-//
-//            InlineKeyboardButton inlineKeyboardButton3 = new InlineKeyboardButton();
-//            inlineKeyboardButton.setText("Контакты");
-//            inlineKeyboardButton.setCallbackData("Контакты");
-//
-//
-//            List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
-//            keyboardButtonsRow1.add(inlineKeyboardButton);
-//            keyboardButtonsRow1.add(inlineKeyboardButton1);
-//            keyboardButtonsRow1.add(inlineKeyboardButton2);
-//            keyboardButtonsRow1.add(inlineKeyboardButton3);
-//
-//            List<List<InlineKeyboardButton>> rowList= new ArrayList<>();
-//            rowList.add(keyboardButtonsRow1);
-//
-//            InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-//            inlineKeyboardMarkup.setKeyboard(rowList);
-//            sendMessage.setReplyMarkup(inlineKeyboardMarkup);
+            InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
+            inlineKeyboardButton.setText("Каталог");
+            inlineKeyboardButton.setCallbackData("Просмотр каталога");
+
+            InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
+            inlineKeyboardButton1.setText("Заказ");
+            inlineKeyboardButton1.setCallbackData("Оформление заказа");
+
+            InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
+            inlineKeyboardButton2.setText("Оплата");
+            inlineKeyboardButton2.setCallbackData("Оплата заказа");
+            inlineKeyboardButton2.setPay(true);
+
+            InlineKeyboardButton inlineKeyboardButton3 = new InlineKeyboardButton();
+            inlineKeyboardButton3.setText("Контакты");
+            inlineKeyboardButton3.setCallbackData("Контакты");
+
+
+            List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+            keyboardButtonsRow1.add(inlineKeyboardButton);
+            keyboardButtonsRow1.add(inlineKeyboardButton1);
+            keyboardButtonsRow1.add(inlineKeyboardButton2);
+            keyboardButtonsRow1.add(inlineKeyboardButton3);
+
+            List<List<InlineKeyboardButton>> rowList= new ArrayList<>();
+            rowList.add(keyboardButtonsRow1);
 
             InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-            InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
-            InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
-            inlineKeyboardButton1.setText("Тык");
-            inlineKeyboardButton1.setCallbackData("Button \"Тык\" has been pressed");
-            inlineKeyboardButton2.setText("Тык2");
-            inlineKeyboardButton2.setCallbackData("Button \"Тык2\" has been pressed");
-            List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
-            List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
-            keyboardButtonsRow1.add(inlineKeyboardButton1);
-            keyboardButtonsRow2.add(inlineKeyboardButton2);
-            List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
-            rowList.add(keyboardButtonsRow1);
-            rowList.add(keyboardButtonsRow2);
             inlineKeyboardMarkup.setKeyboard(rowList);
             sendMessage.setReplyMarkup(inlineKeyboardMarkup);
+
+//            InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+//            InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
+//            InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
+//            inlineKeyboardButton1.setText("Тык");
+//            inlineKeyboardButton1.setCallbackData("Button \"Тык\" has been pressed");
+//            inlineKeyboardButton2.setText("Тык2");
+//            inlineKeyboardButton2.setCallbackData("Button \"Тык2\" has been pressed");
+//            List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+//            List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
+//            keyboardButtonsRow1.add(inlineKeyboardButton1);
+//            keyboardButtonsRow2.add(inlineKeyboardButton2);
+//            List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
+//            rowList.add(keyboardButtonsRow1);
+//            rowList.add(keyboardButtonsRow2);
+//            inlineKeyboardMarkup.setKeyboard(rowList);
+//            sendMessage.setReplyMarkup(inlineKeyboardMarkup);
         }
 
         try {
