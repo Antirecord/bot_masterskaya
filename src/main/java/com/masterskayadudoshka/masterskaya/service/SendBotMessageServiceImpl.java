@@ -74,6 +74,7 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
             rowList.add(keyboardButtonsRow1);
             rowList.add(keyboardButtonsRow2);
             inlineKeyboardMarkup.setKeyboard(rowList);
+            sendMessage.setReplyMarkup(inlineKeyboardMarkup);
         }
 
         try {
