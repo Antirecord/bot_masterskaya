@@ -30,7 +30,7 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
         if (message.equals(START_MESSAGE)) {
             InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
             inlineKeyboardButton.setText("Каталог");
-            inlineKeyboardButton.setCallbackData("Просмотр каталога");
+            inlineKeyboardButton.setCallbackData("Каталог");
 
             InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
             inlineKeyboardButton1.setText("Заказ");
