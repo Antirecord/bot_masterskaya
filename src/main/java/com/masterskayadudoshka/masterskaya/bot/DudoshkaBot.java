@@ -7,11 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
+import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static com.masterskayadudoshka.masterskaya.command.CommandName.NO;
@@ -44,10 +51,21 @@ public class DudoshkaBot extends TelegramLongPollingBot {
             }
         } else if (update.hasCallbackQuery()) {
             try {
-                SendMessage sendMessage = new SendMessage();
-                sendMessage.setText(update.getCallbackQuery().getData());
-                sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId().toString());
+                String callbackQuery = update.getCallbackQuery().getData();
 
+                if (callbackQuery.equals("Каталог")) {
+                    List<InputMedia> inputMedia = new ArrayList<>();
+                    inputMedia.add(new InputMediaPhoto("src/main/resources/images/img.jpeg"));
+                    inputMedia.add(new InputMediaPhoto("src/main/resources/images/img1.jpeg"));
+                    inputMedia.add(new InputMediaPhoto("src/main/resources/images/img2.jpeg"));
+                    inputMedia.add(new InputMediaPhoto("src/main/resources/images/img3.jpeg"));
+                    SendMediaGroup sendMediaGroup = new SendMediaGroup();
+                    sendMediaGroup.setMedias(inputMedia);
+                    execute(sendMediaGroup);
+                }
+                SendMessage sendMessage = new SendMessage();
+                sendMessage.setText(callbackQuery);
+                sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId().toString());
                 execute(sendMessage);
             } catch (TelegramApiException e) {
                 e.printStackTrace();
