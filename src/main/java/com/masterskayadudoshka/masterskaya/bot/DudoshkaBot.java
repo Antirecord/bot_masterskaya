@@ -2,6 +2,8 @@ package com.masterskayadudoshka.masterskaya.bot;
 
 import com.masterskayadudoshka.masterskaya.command.CommandContainer;
 import com.masterskayadudoshka.masterskaya.service.SendBotMessageServiceImpl;
+import com.masterskayadudoshka.masterskaya.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -24,9 +26,9 @@ public class DudoshkaBot extends TelegramLongPollingBot {
     private String userName;
 
     private final CommandContainer commandContainer;
-
-    public DudoshkaBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public DudoshkaBot(TelegramUserService userService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), userService);
     }
 
     @Override
@@ -42,11 +44,6 @@ public class DudoshkaBot extends TelegramLongPollingBot {
         }
     }
 
-
-    @Override
-    public void clearWebhook() throws TelegramApiRequestException {
-
-    }
 
     @Override
     public String getBotUsername() {
